@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davi Rian · Futebol & Gamer Links (@daviriann)</title>
+    
+    <!-- Meta Tags para Redes Sociais -->
+    <meta name="description" content="Hub oficial de links da comunidade de Futebol, Freestyle e Games de Davi Rian (@daviriann). Vídeos, lives, melhores momentos e resenha!">
+    <meta property="og:title" content="Davi Rian · Futebol & Gamer Links">
+    <meta property="og:description" content="Camisa 10 no campo, Streamer no setup! Acompanhe todos os canais, lives, gols e clipes oficiais.">
+    <meta property="og:image" content="./assets/avatar_gamer.jpg">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#090D16">
+
+    <link rel="icon" type="image/jpeg" href="./assets/avatar_gamer.jpg">
+
+    <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        heading: ['"Space Grotesk"', 'sans-serif']
+                    },
+                    colors: {
+                        brand: {
+                            pitch: '#10B981', // Verde Estádio
+                            neon: '#06B6D4',  // Ciano Cyber
+                            violet: '#8B5CF6', // Roxo Gamer
+                            gold: '#F59E0B'    // Dourado Campeão
+                        },
+                        dark: {
+                            bg: '#080C14',
+                            card: '#0E1422',
+                            hover: '#162035',
+                            border: 'rgba(255, 255, 255, 0.08)'
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            background-color: #080C14;
+            color: #E2E8F0;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(6, 182, 212, 0.12) 0px, transparent 60%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .gamer-card {
+            background: rgba(14, 20, 34, 0.85);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gamer-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.2);
+            background: rgba(22, 32, 53, 0.95);
+        }
+
+        .fut-card:hover {
+            border-color: rgba(16, 185, 129, 0.45);
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.22);
+        }
+
+        .glow-avatar-gamer {
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.5), 0 0 10px rgba(6, 182, 212, 0.4);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #10B981, #06B6D4);
+            color: #000;
+            font-weight: 800;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+
+        .tab-btn:not(.active) {
+            background: rgba(255, 255, 255, 0.05);
+            color: #94A3B8;
+        }
+
+        .pulse-live {
+            animation: liveBlink 1.5s infinite;
+        }
+
+        @keyframes liveBlink {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-between px-4 py-8 sm:py-12">
+
+    <!-- Container Central -->
+    <main class="w-full max-w-md mx-auto flex flex-col items-center">
+
+        <!-- Topo: Botões de Ação Rápida -->
+        <div class="w-full flex items-center justify-between mb-6">
+            <span class="text-xs font-mono font-bold tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-live"></span>
+                <span>COMUNIDADE ATIVA</span>
+            </span>
+
+            <div class="flex items-center gap-2">
+                <button onclick="openQrModal()" class="w-9 h-9 rounded-full bg-dark-card border border-dark-border text-slate-400 hover:text-white flex items-center justify-center transition-all" title="Ver QR Code">
+                    <i data-lucide="qr-code" class="w-4 h-4"></i>
+                </button>
+                <button onclick="shareLink()" class="w-9 h-9 rounded-full bg-dark-card border border-dark-border text-slate-400 hover:text-white flex items-center justify-center transition-all" title="Compartilhar Link">
+                    <i data-lucide="share-2" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Banner & Avatar Duplo (Futebol + Gamer) -->
+        <div class="flex flex-col items-center text-center mb-6">
+            
+            <div class="relative mb-4 flex items-center justify-center">
+                <!-- Avatar Gamer Principal -->
+                <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-cyan-400/80 p-1 glow-avatar-gamer bg-dark-card relative z-10">
+                    <img id="main-avatar" src="./assets/avatar_gamer.jpg" alt="Davi Rian" class="w-full h-full object-cover rounded-full">
+                </div>
+
+                <!-- Mini Avatar Futebol Sobreposto -->
+                <div class="absolute -bottom-1 -right-1 w-11 h-11 rounded-full overflow-hidden border-2 border-emerald-400 shadow-lg z-20 bg-dark-card" title="Camisa 10 nos Gramados">
+                    <img src="./assets/avatar_fut.jpg" alt="Davi Futebol" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Nome & Selo Oficial -->
+            <div class="flex items-center gap-1.5 mb-1">
+                <h1 class="text-2xl sm:text-3xl font-heading font-extrabold text-white tracking-tight">Davi Rian</h1>
+                <svg class="w-5 h-5 text-emerald-400 fill-emerald-400" viewBox="0 0 24 24"><path d="m9 16.17 7.88-7.88a1.2 1.2 0 0 0-1.7-1.7L9 12.77 5.82 9.59a1.2 1.2 0 0 0-1.7 1.7l4.88 4.88Z"/></svg>
+            </div>
+
+            <!-- Handles das Redes -->
+            <p class="text-xs font-mono text-cyan-400 font-semibold mb-2">@daviriann · @daviriangamer</p>
+
+            <!-- Pill de Categorias -->
+            <div class="flex items-center gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] font-bold">⚽ Camisa 10</span>
+                <span class="px-2.5 py-1 rounded-md bg-violet-500/10 border border-violet-500/30 text-violet-400 text-[11px] font-bold">🎮 Streamer & Pro Player</span>
+            </div>
+
+            <!-- Bio -->
+            <p class="text-xs sm:text-sm text-slate-300 max-w-xs leading-relaxed">
+                Gols acrobáticos, desafios de bola, resenha esportiva e gameplay competitiva no PC. Bem-vindo à minha arena!
+            </p>
+        </div>
+
+        <!-- Seletor de Abas (Filtros Interativos) -->
+        <div class="w-full grid grid-cols-3 gap-1.5 p-1 rounded-xl bg-dark-card border border-dark-border mb-6">
+            <button class="tab-btn active py-2 rounded-lg text-xs font-bold transition-all" onclick="filterLinks('all', this)">
+                🔥 Todos
+            </button>
+            <button class="tab-btn py-2 rounded-lg text-xs font-bold transition-all" onclick="filterLinks('fut', this)">
+                ⚽ Futebol
+            </button>
+            <button class="tab-btn py-2 rounded-lg text-xs font-bold transition-all" onclick="filterLinks('gamer', this)">
+                🎮 Gamer
+            </button>
+        </div>
+
+        <!-- CTA Principal: Entrar na Comunidade VIP / Resenha no WhatsApp -->
+        <a href="https://wa.me/557196815876?text=Fala%20Davi!%20Vim%20pelo%20seu%20link%20de%20Futebol%20e%20Games,%20quero%20trocar%20uma%20ideia!" target="_blank" rel="noopener" class="w-full p-4 mb-4 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 text-black font-extrabold text-sm sm:text-base flex items-center justify-between shadow-lg shadow-emerald-500/25 hover:scale-[1.02] active:scale-[0.98] transition-all">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-black/10 flex items-center justify-center font-bold text-lg">
+                    💬
+                </div>
+                <div class="text-left">
+                    <div class="font-extrabold">Trocar Ideia no WhatsApp</div>
+                    <div class="text-[11px] text-emerald-950 font-medium">Parcerias, jogos, desafios e resenha</div>
+                </div>
+            </div>
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+
+        <!-- Lista de Links -->
+        <div class="w-full flex flex-col gap-2.5 mb-8" id="links-container">
+
+            <!-- LINK 1: Site Oficial da Comunidade Gamer & Fut (AMBOS) -->
+            <a href="https://davirian-site.vercel.app" target="_blank" rel="noopener" data-category="fut gamer" class="link-item w-full p-3.5 rounded-xl gamer-card flex items-center justify-between group border-l-4 border-l-emerald-500">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="trophy" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">Portal Oficial Gamer & Futebol</div>
+                        <div class="text-[11px] text-slate-400">Galeria de fotos, vídeos HD, notícias e tabela de jogos</div>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- LINK 2: Canal no YouTube (AMBOS) -->
+            <a href="https://www.youtube.com/@daviriannn" target="_blank" rel="noopener" data-category="fut gamer" class="link-item w-full p-3.5 rounded-xl gamer-card flex items-center justify-between group border-l-4 border-l-red-500">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 group-hover:scale-110 transition-transform">
+                        <i data-lucide="youtube" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white group-hover:text-red-400 transition-colors">Canal no YouTube (@daviriannn)</div>
+                        <div class="text-[11px] text-slate-400">Vídeos longos de desafios, vlogs de futebol e gameplays</div>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- LINK 3: Instagram Oficial (AMBOS) -->
+            <a href="https://www.instagram.com/daviriann" target="_blank" rel="noopener" data-category="fut gamer" class="link-item w-full p-3.5 rounded-xl gamer-card flex items-center justify-between group border-l-4 border-l-pink-500">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white group-hover:text-pink-400 transition-colors">Instagram Oficial (@daviriann)</div>
+                        <div class="text-[11px] text-slate-400">Stories diários, bastidores dos treinos e setup</div>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- LINK 4: TikTok com Cortes e Gols (AMBOS) -->
+            <a href="https://www.tiktok.com/@daviriann" target="_blank" rel="noopener" data-category="fut gamer" class="link-item w-full p-3.5 rounded-xl gamer-card flex items-center justify-between group border-l-4 border-l-cyan-400">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                        <svg class="w-5 h-5 fill-cyan-400" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.68 6.34 6.34 0 0 0 9.34 22a6.34 6.34 0 0 0 6.33-6.32V8.92a8.28 8.28 0 0 0 4.84 1.54V7.02a4.87 4.87 0 0 1-.92-.33Z"/></svg>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors">TikTok (@daviriann)</div>
+                        <div class="text-[11px] text-slate-400">Cortes virais, canetas, dribles e clipes rápidos</div>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- LINK 5: Kwai Oficial (AMBOS) -->
+            <a href="https://www.kwai.com/@daviriannnn" target="_blank" rel="noopener" data-category="fut gamer" class="link-item w-full p-3.5 rounded-xl gamer-card flex items-center justify-between group border-l-4 border-l-amber-500">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="video" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white group-hover:text-amber-400 transition-colors">Kwai Oficial (@daviriannnn)</div>
+                        <div class="text-[11px] text-slate-400">Vídeos diários de futebol e lances esportivos</div>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- LINK 6: Spotify Playlists de Treino & Game (AMBOS) -->
+            <a href="https://open.spotify.com/user/31lktxgjusaqtulieglfgxjsajq4" target="_blank" rel="noopener" data-category="fut gamer" class="link-item w-full p-3.5 rounded-xl gamer-card flex items-center justify-between group border-l-4 border-l-emerald-400">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="music" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">Playlists no Spotify (Treino & Game)</div>
+                        <div class="text-[11px] text-slate-400">Trilha sonora para academia, campo e maratona gamer</div>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- LINK 7: X (Twitter) Notícias & Opiniões (AMBOS) -->
+            <a href="https://x.com/DaviRiann" target="_blank" rel="noopener" data-category="fut gamer" class="link-item w-full p-3.5 rounded-xl gamer-card flex items-center justify-between group border-l-4 border-l-sky-400">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="twitter" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">X (Twitter) · @DaviRiann</div>
+                        <div class="text-[11px] text-slate-400">Debates da rodada, palpites, eSports e atualizações</div>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- LINK 8: Facebook da Comunidade (AMBOS) -->
+            <a href="https://www.facebook.com/davi.rian.641954/" target="_blank" rel="noopener" data-category="fut gamer" class="link-item w-full p-3.5 rounded-xl gamer-card flex items-center justify-between group border-l-4 border-l-indigo-600">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-600/10 border border-indigo-600/30 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white group-hover:text-indigo-400 transition-colors">Página no Facebook</div>
+                        <div class="text-[11px] text-slate-400">Publicações e resenhas completas para a torcida</div>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- LINK 9: Davi Bot SaaS (Exclusivo para Criadores Gamer/Fut) -->
+            <a href="https://davi-bot-site.vercel.app" target="_blank" rel="noopener" data-category="gamer fut" class="link-item w-full p-3.5 rounded-xl gamer-card flex items-center justify-between group border-l-4 border-l-cyan-500">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="bot" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors">Davi Bot · IA para Cortes de Vídeo</div>
+                        <div class="text-[11px] text-slate-400">Automatize cortes de gameplay e gols para TikTok/Reels</div>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- LINK 10: Portfólio Tech Principal (Cross-link seguro) -->
+            <a href="https://davirian-tech.vercel.app/" target="_blank" rel="noopener" data-category="gamer" class="link-item w-full p-3.5 rounded-xl gamer-card flex items-center justify-between group border-l-4 border-l-violet-500">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/30 flex items-center justify-center text-violet-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="code" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-sm font-bold text-white group-hover:text-violet-400 transition-colors">Davi Rian Tech (Portfólio de Software)</div>
+                        <div class="text-[11px] text-slate-400">Desenvolvimento de bots, SaaS e sistemas web</div>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+        </div>
+
+        <!-- Banner com Foto Autêntica de Destaque -->
+        <div class="w-full rounded-2xl overflow-hidden border border-dark-border mb-8 relative group">
+            <img src="./assets/banner_gamer.jpg" alt="Davi Rian Arena" class="w-full h-36 object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#080C14] via-transparent to-transparent"></div>
+            <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs font-bold text-white">
+                <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Davi Rian Arena</span>
+                <span class="text-slate-400 font-mono text-[11px]">Temporada 2026</span>
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <footer class="text-center text-slate-500 text-[11px]">
+            <p>© 2026 <strong>Davi Rian</strong> · Comunidade Gamer & Futebol</p>
+            <p class="mt-1">Salvador/BA · Conteúdo Esportivo, Gameplay & Entretenimento</p>
+        </footer>
+
+    </main>
+
+    <!-- Modal de QR Code -->
+    <div id="qr-modal" style="display: none;" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-dark-card border border-dark-border p-6 rounded-3xl max-w-xs w-full text-center relative shadow-2xl">
+            <button onclick="closeQrModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
+            <h3 class="text-base font-bold text-white mb-1">Aponte a Câmera</h3>
+            <p class="text-xs text-slate-400 mb-4">Escaneie para abrir a Arena Davi Rian no seu celular</p>
+            <div class="p-3 bg-white rounded-2xl mx-auto inline-block mb-4">
+                <img id="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fdavirian-futgamer-links.vercel.app%2F" alt="QR Code Davi Rian Arena" class="w-44 h-44">
+            </div>
+            <button onclick="closeQrModal()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-extrabold text-xs">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        function filterLinks(category, btn) {
+            // Atualizar classes dos botões
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Trocar imagem do avatar principal dependendo da aba
+            const mainAvatar = document.getElementById('main-avatar');
+            if (category === 'fut') {
+                mainAvatar.src = './assets/avatar_fut.jpg';
+            } else {
+                mainAvatar.src = './assets/avatar_gamer.jpg';
+            }
+
+            // Filtrar os itens
+            const items = document.querySelectorAll('.link-item');
+            items.forEach(item => {
+                const cats = item.getAttribute('data-category');
+                if (category === 'all' || cats.includes(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function shareLink() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Davi Rian · Futebol & Gamer Links',
+                    text: 'Acompanhe todos os links de Futebol e Games do Davi Rian (@daviriann):',
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('Link copiado para a área de transferência!');
+            }
+        }
+
+        function openQrModal() {
+            document.getElementById('qr-modal').style.display = 'flex';
+        }
+
+        function closeQrModal() {
+            document.getElementById('qr-modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
